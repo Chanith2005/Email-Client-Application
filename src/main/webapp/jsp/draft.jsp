@@ -13,35 +13,45 @@
 
     <div class="main-content">
         <div class="emails-container">
-            <h1>Sent</h1>
+            <h1>Draft</h1>
             <table class="emails">
                 <thead>
                     <tr>
                         <th>To</th>
                         <th>Subject</th>
                         <th>Date</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
-                        List<EmailDTO> draft = (List<EmailDTO>) request.getAttribute("draft");
-                        if (draft != null && !draft.isEmpty()) {
-                            for (EmailDTO email : draft) {
+                    List<EmailDTO> draft = (List<EmailDTO>) request.getAttribute("draft");
+                    if (draft != null && !draft.isEmpty()) {
+                        for (EmailDTO email : draft) {
                     %>
-                    <tr>
-                        <td><%= UserService.getEmailById(email.getRecepientId()) %></td>
-                        <td><%= email.getSubject() %></td>
-                        <td><%= email.getSentTime() %></td>
-                    </tr>
-                    <%
-                            }
-                        } else {
-                    %>
-                    <tr>
-                        <td colspan="3">No emails found.</td>
-                    </tr>
+              
+                   <tr onclick="window.location.href='${pageContext.request.contextPath}/open?id=<%= email.getEmailId() %>&returnPage=inbox'" style="cursor: pointer;">
+					    <td><%= UserService.getEmailById(email.getSenderId()) %></td>
+					    <td><%= email.getSubject() %></td>
+					    <td><%= email.getSentTime() %></td>
+					    <td onclick="event.stopPropagation();">
+					        <form method="post" action="${pageContext.request.contextPath}/remove">
+					            <input type="hidden" name="emailId" value="<%= email.getEmailId() %>">
+					            <input type="hidden" name="action" value="moveToJunk">
+					            <input type="hidden" name="returnPage" value="draft">
+					            <button type="submit">Remove</button>
+					        </form>
+					    </td>
+					</tr>
                     <%
                         }
+                    } else {
+                    %>
+                    <tr>
+                        <td colspan="4">No emails found.</td>
+                    </tr>
+                    <%
+                    }
                     %>
                 </tbody>
             </table>

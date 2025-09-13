@@ -15,6 +15,10 @@
                 <div class="success">Registration successful! Please login.</div>
             <% } %>
             
+             <% if (request.getParameter("logout") != null) { %>
+                <div class="success">You have been successfully logged out.</div>
+            <% } %>
+            
             <% if (request.getAttribute("error") != null) { %>
                 <div class="error"><%= request.getAttribute("error") %></div>
             <% } %>

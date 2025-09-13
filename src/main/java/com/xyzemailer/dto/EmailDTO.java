@@ -3,72 +3,78 @@ package com.xyzemailer.dto;
 import java.sql.Timestamp;
 
 public class EmailDTO {
-	
-	private int senderId;
-	private int recepientId;
-	private String subject;
-	private String body;
-	private String status;
-	private Timestamp sentTime;
-	
-	public EmailDTO() {}
-	
-	public EmailDTO(int senderId, int recepientId, String subject, String body, String status, Timestamp sentTime) {
-	
-		this.senderId = senderId;
-		this.recepientId = recepientId;
-		this.subject = subject;
-		this.body = body;
-		this.status = status;
-		this.sentTime = sentTime;
-	}
+    private int emailId;
+    private int senderId;
+    private int recepientId;
+    private String subject;
+    private String body;
+    private String senderStatus;
+    private String recipientStatus;
+    private Timestamp sentTime;
 
-	public int getSenderId() {
-		return senderId;
-	}
+    public EmailDTO() {}
 
-	public void setSenderId(int senderId) {
-		this.senderId = senderId;
-	}
+    public int getEmailId() {
+        return emailId;
+    }
 
-	public int getRecepientId() {
-		return recepientId;
-	}
+    public void setEmailId(int emailId) {
+        this.emailId = emailId;
+    }
 
-	public void setRecepientId(int recepientId) {
-		this.recepientId = recepientId;
-	}
+    public int getSenderId() {
+        return senderId;
+    }
 
-	public String getSubject() {
-		return subject;
-	}
+    public void setSenderId(int senderId) {
+        this.senderId = senderId;
+    }
 
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
+    public int getRecepientId() {
+        return recepientId;
+    }
 
-	public String getBody() {
-		return body;
-	}
+    public void setRecepientId(int recepientId) {
+        this.recepientId = recepientId;
+    }
 
-	public void setBody(String body) {
-		this.body = body;
-	}
+    public String getSubject() {
+        return subject;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public String getBody() {
+        return body;
+    }
 
-	public Timestamp getSentTime() {
-		return sentTime;
-	}
+    public void setBody(String body) {
+        this.body = body;
+    }
 
-	public void setSentTime(Timestamp timestamp) {
-		this.sentTime = timestamp;
-	}
+    public String getSenderStatus() {
+        return senderStatus;
+    }
 
+    public void setSenderStatus(String senderStatus) {
+        this.senderStatus = senderStatus;
+    }
+
+    public String getRecipientStatus() {
+        return recipientStatus;
+    }
+
+    public void setRecipientStatus(String recipientStatus) {
+        this.recipientStatus = recipientStatus;
+    }
+
+    public Timestamp getSentTime() {
+        return sentTime;
+    }
+
+    public void setSentTime(Timestamp sentTime) {
+        this.sentTime = sentTime;
+    }
 }

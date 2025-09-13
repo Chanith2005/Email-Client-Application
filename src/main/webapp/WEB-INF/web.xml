@@ -69,4 +69,44 @@
     <servlet-name>DraftServlet</servlet-name>
     <url-pattern>/draft</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>JunkServlet</display-name>
+    <servlet-name>JunkServlet</servlet-name>
+    <servlet-class>com.xyzemailer.controller.JunkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JunkServlet</servlet-name>
+    <url-pattern>/junk</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveServlet</display-name>
+    <servlet-name>RemoveServlet</servlet-name>
+    <servlet-class>com.xyzemailer.controller.RemoveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveServlet</servlet-name>
+    <url-pattern>/remove</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewEmailServlet</display-name>
+    <servlet-name>ViewEmailServlet</servlet-name>
+    <servlet-class>com.xyzemailer.controller.ViewEmailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewEmailServlet</servlet-name>
+    <url-pattern>/open</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.xyzemailer.controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
 </web-app>

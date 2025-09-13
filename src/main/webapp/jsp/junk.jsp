@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>XYZ Mailer - Inbox</title>
+    <title>XYZ Mailer - Junk</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css">
 </head>
 <body>
@@ -13,11 +13,11 @@
 
     <div class="main-content">
         <div class="emails-container">
-            <h1>Inbox</h1>
+            <h1>Junk</h1>
             <table class="emails">
                 <thead>
                     <tr>
-                        <th>From</th>
+                        <th>From/To</th>
                         <th>Subject</th>
                         <th>Date</th>
                         <th>Action</th>
@@ -25,19 +25,19 @@
                 </thead>
                 <tbody>
                     <%
-                    List<EmailDTO> inbox = (List<EmailDTO>) request.getAttribute("inbox");
-                    if (inbox != null && !inbox.isEmpty()) {
-                        for (EmailDTO email : inbox) {
+                    List<EmailDTO> junk = (List<EmailDTO>) request.getAttribute("junk");
+                    if (junk != null && !junk.isEmpty()) {
+                        for (EmailDTO email : junk) {
                     %>
                    <tr onclick="window.location.href='${pageContext.request.contextPath}/open?id=<%= email.getEmailId() %>&returnPage=inbox'" style="cursor: pointer;">
 					    <td><%= UserService.getEmailById(email.getSenderId()) %></td>
 					    <td><%= email.getSubject() %></td>
 					    <td><%= email.getSentTime() %></td>
 					    <td onclick="event.stopPropagation();">
-					        <form method="post" action="${pageContext.request.contextPath}/remove">
+					        <form method="post" action="${pageContext.request.contextPath}/junk">
 					            <input type="hidden" name="emailId" value="<%= email.getEmailId() %>">
-					            <input type="hidden" name="action" value="moveToJunk">
-					            <input type="hidden" name="returnPage" value="inbox">
+					            <input type="hidden" name="action" value="delete">
+					            <input type="hidden" name="returnPage" value="junk">
 					            <button type="submit">Remove</button>
 					        </form>
 					    </td>
@@ -47,7 +47,7 @@
                     } else {
                     %>
                     <tr>
-                        <td colspan="4">No emails found.</td>
+                        <td colspan="4">No junk emails found.</td>
                     </tr>
                     <%
                     }

@@ -8,9 +8,10 @@ body, html {
     display: flex;
 }
 
+
 .sidebar {
     width: 240px;
-    background: #f1f3f4;
+    background: #191919;
     border-right: 1px solid #ddd;
     padding: 20px;
     box-sizing: border-box;
@@ -22,15 +23,15 @@ body, html {
 
 .sidebar h2 {
     font-size: 22px;
-    color: #202124;
+    color: #ffffff;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .compose-button {
     width: 100%;
-    background: #007bff;
-    color: white;
+    background: #c0c0c0;
+    color: black;
     font-weight: bold;
     border: none;
     padding: 12px;
@@ -43,7 +44,7 @@ body, html {
 }
 
 .compose-button:hover {
-    background: #0056b3;
+    background: #4f4f4f;
 }
 
 .sidebar .menu {
@@ -60,43 +61,44 @@ body, html {
     display: block;
     padding: 10px 14px;
     border-radius: 8px;
-    color: #202124;
+    color: #ffffff;
     text-decoration: none;
     font-size: 16px;
     transition: background 0.2s;
 }
 
 .sidebar .menu a:hover {
-    background: #e8eaed;
+    background: #3a3a3a;
 }
 
 .sidebar .menu a.active {
-    background: #d2e3fc;
+    background: #313131;
     font-weight: bold;
-    color: #1967d2;
+    color: #c0c0c0;
     pointer-events: none;
 }
 
 
 .main-content {
-    margin-left: 240px; 
+    margin-left: 240px;
     padding: 20px;
     background: #fff;
     height: 100vh;
     box-sizing: border-box;
     overflow-y: auto;
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap; 
+    flex: 1;
 }
 
 
 .emails-container {
-    flex: 1 1 50%;       
-    min-width: 320px;   
-    max-width: 720px;    
+    max-width: 1000px;
 }
 
+.emails-container h1 {
+    color: #202124;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
 .emails {
     width: 100%;
@@ -113,6 +115,7 @@ body, html {
 .emails th {
     background: #f1f3f4;
     font-weight: bold;
+    color: #5f6368;
 }
 
 .emails tr:hover {
@@ -120,70 +123,144 @@ body, html {
     cursor: pointer;
 }
 
+.emails td button {
+    background: #ffffff;
+    color: #ea4335;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.emails td button:hover {
+    color: #6a0000;
+}
 
 .compose-popup {
     position: fixed;
-    top: 70px;
-    right: 0;
-    width: 400px;
-    height: calc(100vh - 80px);
+    top: 0;
+    right: -720px; 
+    width: 700px;
+    height: 100vh;
     background: white;
     border-left: 1px solid #ddd;
     padding: 20px;
     box-sizing: border-box;
-    box-shadow: -5px 0 10px rgba(0,0,0,0.1);
-    display: none;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 1000;
     overflow-y: auto;
-    z-index: 10001;
 }
 
 .compose-popup.show {
-    display: block;
+    right: 0; 
+}
+
+.compose-popup h2 {
+    margin: 0 0 20px 0;
+    color: #202124;
+    font-size: 20px;
 }
 
 .close-popup {
     cursor: pointer;
-    font-size: 26px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: normal;
     border: none;
     background: transparent;
     position: absolute;
-    top: 10px;
-    right: 12px;
-    color: #333;
+    top: 15px;
+    right: 20px;
+    color: #5f6368;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s;
 }
 
-form label {
+.close-popup:hover {
+    background: #f1f3f4;
+}
+
+.compose-popup label {
     display: block;
     margin-top: 15px;
-    font-weight: bold;
+    margin-bottom: 5px;
+    font-weight: 500;
     font-size: 14px;
-    color: #222;
+    color: #3c4043;
 }
 
-form input[type="email"],
-form input[type="text"],
-form textarea {
+.compose-popup input[type="email"],
+.compose-popup input[type="text"],
+.compose-popup textarea {
     width: 100%;
-    padding: 8px;
-    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid #dadce0;
     border-radius: 4px;
-    border: 1px solid #ccc;
     font-size: 14px;
     box-sizing: border-box;
+    transition: border-color 0.2s;
 }
 
-form textarea {
+.compose-popup input:focus,
+.compose-popup textarea:focus {
+    outline: none;
+    border-color: #000000;
+}
+
+.compose-popup textarea {
     resize: vertical;
+    min-height: 200px;
+    font-family: Arial, sans-serif;
 }
 
-form button[type="submit"] {
+.compose-popup button[type="submit"] {
     margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
+    margin-right: 10px;
+    padding: 10px 24px;
+    background-color: #000000;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
+    transition: background 0.2s;
+}
+
+.compose-popup button[type="submit"]:hover {
+    background-color: #464646;
+}
+
+.compose-popup button[type="submit"]:last-child {
+    background-color: #f1f3f4;
+    color: #000000;
+}
+
+.compose-popup button[type="submit"]:last-child:hover {
+    background-color: #e8eaed;
+}
+
+
+.error {
+    background: #fee;
+    color: #c00;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.success {
+    background: #efe;
+    color: #060;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
 }

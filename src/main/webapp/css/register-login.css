@@ -1,4 +1,4 @@
-/* General container for login and register boxes */
+
 .container {
     width: 100%;
     max-width: 400px;
@@ -11,11 +11,10 @@
     font-family: Arial, sans-serif;
 }
 
-/* Title styles */
 h1 {
     text-align: center;
     font-size: 28px;
-    color: #333;
+    color: rgb(78, 78, 78);
     margin-bottom: 20px;
 }
 
@@ -26,7 +25,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Form styling */
 form {
     display: flex;
     flex-direction: column;
@@ -52,17 +50,16 @@ input[type="email"] {
     border: 1px solid #ccc;
     font-size: 14px;
     box-sizing: border-box;
-    transition: border-color 0.2s ease-in-out;
+    transition: border-color 0.2s ;
 }
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
-    border-color: #007bff;
+    border-color:#282828;
     outline: none;
 }
 
-/* Submit button */
 button {
-    background: #007bff;
+    background: #282828 ;
     color: white;
     font-weight: bold;
     padding: 12px 16px;
@@ -70,14 +67,14 @@ button {
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ;
 }
 
 button:hover {
-    background: #0056b3;
+    background: black;
 }
 
-/* Links and text */
+
 p, .message {
     text-align: center;
     font-size: 14px;
@@ -93,7 +90,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Success and error messages */
 .success {
     background-color: #d4edda;
     color: #155724;
